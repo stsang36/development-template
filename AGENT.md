@@ -16,7 +16,7 @@ def process_players(self, raw_players: List[Dict], queue_id: str = "") -> List[P
 - Use background threads for slow work.
 - Use `self.after(0, callback)` to safely update UI from background threads.
 - Use `ThreadPoolExecutor` for bounded parallel operations where that pattern already exists.
-- Remember that Riot match-detail requests are intentionally throttled even when worker threads exist; do not assume more threads automatically means faster loading.
+- Remember API limitations and cooldowns when designing background tasks. Don't create a thread that will spam an endpoint.
 
 ## Constants & Configuration
 - Never hardcode values directly in code. Create named constants and place them in a central file. 
